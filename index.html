@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="نُظُم — منصة ذكية لإدارة الكافيهات والمطاعم والمتاجر." />
+  <meta name="theme-color" content="#fdfdfd">
+
+  <!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#57b894">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+  <title>نُظُم — إدارة ذكية، تجربة لا تُنسى</title>
+  
+  <!-- الخطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Leaflet (للخريطة) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="landing page.css" />
+  <link rel="manifest" href="manifest.json">
+  <!-- وضع التصميم -->
+  <script>
+    // كشف وضع النظام (فاتح/داكن)
+    if (localStorage.theme === 'dark' || 
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll Side Indicator -->
+<div class="scroll-side-indicator"></div>
+
+  <!-- خلفية ديناميكية -->
+  <div class="dynamic-bg"></div>
+  
+  <!-- Scroll Indicator Top -->
+<div class="scroll-indicator"></div>
+
+<!-- Scroll Percentage -->
+<div class="scroll-percent">0%</div>
+
+  <!-- زر تبديل الوضع -->
+  <button id="themeToggle" class="theme-toggle" aria-label="تبديل الوضع">
+    <i class="fas fa-sun"></i>
+  </button>
+
+  <!-- زر CTA عائم -->
+  <div class="floating-cta" id="floatingCTA">
+    <a href="#pricing" class="btn btn-primary">ابدأ الآن</a>
+  </div>
+
+  <!-- الهيدر -->
+  <header class="header" id="header">
+  <div class="container header-container">
+    <div class="logo">نُظُم<span>.</span></div>
+    
+    <nav class="nav">
+      <a href="#features" class="smooth-scroll">المميزات</a>
+      <a href="#testimonials" class="smooth-scroll">الآراء</a>
+      <a href="#pricing" class="smooth-scroll">الأسعار</a>
+      <a href="#faq" class="smooth-scroll">الأسئلة</a>
+    </nav>
+    
+    <div class="header-actions">
+      <div class="live-stats" id="liveStats">
+        <span>الزوار الآن: <strong id="visitorsCount">24</strong></span>
+        <span>التقييم: <strong id="rating">98%</strong></span>
+      </div>
+      
+      <button id="presentationBtn" class="presentation-btn" title="وضع العرض التقديمي">
+        <i class="fas fa-play-circle"></i>
+      </button>
+      
+      <a href="#signup" class="btn btn-primary smooth-scroll">التسجيل</a>
+    </div>
+  </div>
+</header>
+
+  <!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <h1>منصة تُعيد تعريف سهولة الإدارة</h1>
+    <p>مصممة خصيصًا لأصحاب الكافيهات والمطاعم — لتجعل كل تفصيل في عملك يسير بسلاسة تامة.</p>
+    <div class="hero-buttons">
+      <a href="#signup" class="btn btn-primary smooth-scroll">ابدأ تجربتك</a>
+      <a href="#features" class="btn btn-text smooth-scroll">كيف يعمل؟</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <button class="focus-toggle" data-section="features">ركز هنا</button>
+      <h2>بُنِيتَ لِتَنْسَى التعقيد</h2>
+      <div class="features-grid">
+        <div class="feature-card interactive-card" data-tilt>
+          <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>حجز ذكي للطاولات</h3>
+          <p>نظام حجز يقلل الفراغ بنسبة 40% تلقائيًا.</p>
+        </div>
+        <div class="feature-card interactive-card" data-tilt>
+          <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>تحليلات مبيعات لحظية</h3>
+          <p>اعرف أكثر المنتجات رواجًا في كل ساعة.</p>
+        </div>
+        <div class="feature-card interactive-card" data-tilt>
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3>تكامل فوري مع الدفع</h3>
+          <p>ادفع واغادر — بدون انتظار.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+<section class="section" id="gallery">
+  <div class="container">
+    <button class="focus-toggle" data-section="features">ركز هنا</button>
+    <h2>نظرة داخل النظام</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-src="https://images.unsplash.com/photo-1517281233364-4c08ff9236ab?auto=format&fit=crop&w=600">
+        <img src="https://images.unsplash.com/photo-1517281233364-4c08ff9236ab?auto=format&fit=crop&w=300" alt="لوحة التحكم">
+      </div>
+      <div class="gallery-item" data-src="https://images.unsplash.com/photo-1551817953-d92c2c1e5f7f?auto=format&fit=crop&w=600">
+        <img src="https://images.unsplash.com/photo-1551817953-d92c2c1e5f7f?auto=format&fit=crop&w=300" alt="حجز الطاولات">
+      </div>
+      <div class="gallery-item" data-src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=300" alt="تقارير المبيعات">
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Stats -->
+<section class="section stats" id="stats">
+  <div class="container">
+    <button class="focus-toggle" data-section="features">ركز هنا</button>
+    <h2>أرقام تتحدث عن نفسها</h2>
+    <div class="stats-grid">
+      <div class="stat-item" data-target="5000" data-duration="2000">
+        <div class="stat-number">0</div>
+        <div class="stat-label">عميل سعيد</div>
+      </div>
+      <div class="stat-item" data-target="99.9" data-duration="2000">
+        <div class="stat-number">0</div>
+        <div class="stat-label">%توافر النظام</div>
+      </div>
+      <div class="stat-item" data-target="15" data-duration="2000">
+        <div class="stat-number">0</div>
+        <div class="stat-label">ساعة وفرها أسبوعيًا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <button class="focus-toggle" data-section="features">ركز هنا</button>
+      <h2>قصص من قلب العمل</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>“من أول أسبوع، النظام وفّر لي 15 ساعة عمل أسبوعيًا. الموظفون أصبحوا أكثر تركيزًا، والزبائن أكثر رضا.”</p>
+          <div class="client">
+            <strong>أحمد خالد البركه</strong>
+            <span>مؤسس كافيه "وَجد"</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>“الدعم الفني ردّ خلال 3 دقائق! تجربة لا تُصدّق مقارنة بباقي الأنظمة.”</p>
+          <div class="client">
+            <strong>ليلى عبد الرحمن</strong>
+            <span>مؤسسة متجر أزياء</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <button class="focus-toggle" data-section="features">ركز هنا</button>
+      <h2>اختر رحلتك</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>الأساسي</h3>
+          <div class="price">٩٩ ر.س<span>/شهر</span></div>
+          <ul>
+            <li>حتى ٣ مستخدمين</li>
+            <li>تقارير أساسية</li>
+            <li>دعم فوري</li>
+          </ul>
+          <a href="#signup" class="btn btn-outline smooth-scroll">ابدأ الآن</a>
+        </div>
+        <div class="pricing-card featured interactive-card" data-tilt>
+          <div class="badge">الأكثر اختيارًا</div>
+          <h3>المتقدم</h3>
+          <div class="price">١٩٩ ر.س<span>/شهر</span></div>
+          <ul>
+            <li>حتى ١٠ مستخدمين</li>
+            <li>تحليلات ذكية</li>
+            <li>نسخ احتياطي يومي</li>
+            <li>دعم مخصص</li>
+          </ul>
+          <a href="#signup" class="btn btn-primary smooth-scroll">ابدأ الآن</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <button class="focus-toggle" data-section="features">ركز هنا</button>
+      <h2>الأسئلة الشائعة</h2>
+      <div class="faq-item">
+        <div class="faq-question">هل أحتاج خبرة تقنية لاستخدام النظام؟</div>
+        <div class="faq-answer">Absolutely not! النظام مصمم ليكون بديهيًا لأي شخص — حتى بدون خلفية تقنية.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">هل يمكنني تجربته مجانًا؟</div>
+        <div class="faq-answer">نعم! نقدم 14 يومًا تجريبيًا كاملًا — بدون بطاقة ائتمان.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">هل البيانات آمنة؟</div>
+        <div class="faq-answer">نعم. نستخدم تشفير AES-256 — نفس تقنية البنوك العالمية.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="section cta" id="signup">
+    <div class="container">
+      <button class="focus-toggle" data-section="features">ركز هنا</button>
+      <h2>مستعد لتجربة ذكاء هادئ؟</h2>
+      <p>أدخل بريدك وسنبدأ رحلتك خلال دقائق.</p>
+      <form id="signupForm">
+        <input type="email" id="emailInput" placeholder="بريدك الإلكتروني" required />
+        <button type="submit" class="btn btn-primary">ابدأ تجربتك</button>
+      </form>
+      <p class="form-note">نحن نحترم خصوصيتك. لن نشارك بريدك مع أحد.</p>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="section" id="contact">
+    <div class="container">
+      <button class="focus-toggle" data-section="features">ركز هنا</button>
+      <h2>زورنا</h2>
+      <div id="map" style="height: 300px; border-radius: 20px; overflow: hidden; margin-top: 2rem;"></div>
+    </div>
+  </section>
+
+  <!-- Chat Widget -->
+<div class="chat-widget" id="chatWidget">
+  <button class="chat-toggle" id="chatToggle">
+    <i class="fas fa-comments"></i>
+  </button>
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <h4>الدعم الفني</h4>
+      <button id="closeChat">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">مرحبًا! كيف يمكنني مساعدتك اليوم؟</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="اكتب رسالتك..." />
+      <button id="sendChat"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">نُظُم<span>.</span></div>
+        <p>منصة ذكية تُبسط إدارة العمل لأصحاب المشاريع الصغيرة.</p>
+      </div>
+      <div>
+        <h4>الروابط</h4>
+        <a href="#features">المميزات</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#faq">الأسئلة</a>
+      </div>
+      <div class="contact-section">
+        <h4>التواصل</h4>
+        <div class="social-icons">
+          <a href="mailto:ahmedkhaledb7@gmail.com" aria-label="البريد الإلكتروني">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://linkedin.com/in/ahmed-elbaraka-0b22b4398/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/ahmedkhaledfathi2" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.instagram.com/ahmed_k_elbaraka?igsh=MTdjd3NpZGo1NDBmMw==" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 نُظُم. جميع الحقوق محفوظة.</p>
+      <p>تصميم وتطوير بواسطة أحمد خالد البركه</p>
+    </div>
+  </div>
+</footer>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="landing page.js"></script>
+</body>
+</html>

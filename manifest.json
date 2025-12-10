@@ -1,0 +1,20 @@
+{
+  "name": "نُظُم — إدارة ذكية",
+  "short_name": "نُظُم",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#57b894",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%2357b894'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%23ffffff' font-size='48' font-family='Tajawal' dominant-baseline='middle'%3Eنُظُم%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%2357b894'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%23ffffff' font-size='128' font-family='Tajawal' dominant-baseline='middle'%3Eنُظُم%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
